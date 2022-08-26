@@ -24,9 +24,16 @@ const Home = () => {
         </div>
         <div className="imgContainer">
           <img src={img} alt="" className="img" />
-          <div className="container1"></div>
-          <div className="container2"></div>
+          {/* <div className="container1"></div>
+          <div className="container2"></div> */}
         </div>
+
+      </div>
+
+      <div className="recipes">
+        <h1 className="heading--primary">Recipes you may like</h1>
+        <p className="paragraph">We provide a variety of food and beverage recipes <br /> with high taste from famous chef</p>
+
       </div>
     </div>
   );
