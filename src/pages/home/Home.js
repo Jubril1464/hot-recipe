@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.scss";
 import { Link } from "react-router-dom";
-import img from '../../img.jpg'
+import img from '../../img.png'
 
 
 const Home = () => {
