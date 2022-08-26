@@ -4,10 +4,12 @@ $color--bg: #ecfeff;
 .App {
     background-color: $color--bg;
     min-height: 100vh;
+  
   .header {
     display: flex;
     justify-content: space-around;
     font-size: 2rem;
+    padding-top: 2rem;
     &__logo {
       &--text {
         font-size: 3rem;
@@ -33,6 +35,8 @@ $color--bg: #ecfeff;
       }
     }
     &__search{
+      
+
         &--input{
             padding: .8rem 1rem;
             border: none;

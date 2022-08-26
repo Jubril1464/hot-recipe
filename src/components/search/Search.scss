@@ -1,0 +1,8 @@
+@import "/src/App.scss";
+.form {
+  &--search {
+    padding: 0.8rem 1rem;
+    border: none;
+    background-color: $color--white;
+  }
+}

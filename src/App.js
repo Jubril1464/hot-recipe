@@ -1,6 +1,7 @@
 import "./App.scss";
 import { Routes, Route,Link } from "react-router-dom";
 import Pages from "./pages/home/Pages";
+import Search from "./components/search/Search";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
           </ul>
         </nav>
         <div className="header__search">
-          <input type="text" placeholder="Search" className="header__search--input" />
+          <Search />
         </div>
       </header>
 
