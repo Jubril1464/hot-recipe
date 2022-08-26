@@ -1,0 +1,32 @@
+*, *::after, *::before{
+  margin: 0;
+  padding: 0;
+}
+html{
+  font-size: 62.5%; /* 1rem = 10px, 10/16 = 62.5% */
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Media query for tab-landscape */
+@media (max-width : 1200px){
+  html {
+    font-size:  55%;
+  }
+}
+/* Media query for tab portait */
+@media (max-width : 900px){
+  html {
+    font-size: 50%;  /* 1rem = 8px, 8/16 = 50% */
+  }
+}
+/* Media query for phone */ 
+@media (max-width: 600px){
+  html{
+    font-size: 43.75%;    /* 1rem = 7px, 8/16 = 43.75% */
+  }
+}
+
+
