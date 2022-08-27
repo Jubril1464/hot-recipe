@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
 import './Recipes.scss'
 import ClipLoader from 'react-spinners/ClipLoader'
+import { useSelector, useDispatch } from "react-redux/es/exports";
+import { addLike } from "../../redux/likeRecipes/likeRecipes.action";
 
 
 const Recipes = () => {
+  const selector = useSelector(state => state.likeRecipe)
+  const dispatch = useDispatch()
+  console.log(selector);
     const [random, setRandom] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
   const [likes, setLikes] = useState([])
+  const [state,setState] = useState([])
 
   const getRandomRecipes = async () => {
     const getData = localStorage.getItem("popular");
@@ -33,8 +39,11 @@ const Recipes = () => {
   useEffect(() => {
     getRandomRecipes();
   }, []);
-  const handleLike = (id) => {
-    setLikes(likes.concat(id));
+  const handleLike = (recipe) => {
+    setLikes(likes.concat(recipe.id));
+    dispatch(addLike(recipe))
+    
+
   };
   return (
     <div className="recipes">
@@ -45,11 +54,11 @@ const Recipes = () => {
       )}
 
       <div className="recipes__container">
-        {random.map(({ title, id, image }) => (
-          <div className="recipe" key={id}>
-            <h3 className="recipe__title">{title}</h3>
-            <img src={image} alt="title" className="recipe__image" />
-            <button className={`btn ${likes.includes(id) ? 'liked': ''}`} onClick={() => handleLike(id)}>Click to Like</button>
+        {random.map((recipe) => (
+          <div className="recipe" key={recipe.id}>
+            <h3 className="recipe__title">{recipe.title}</h3>
+            <img src={recipe.image} alt="title" className="recipe__image" />
+            <button className={`btn ${likes.includes(recipe.id) ? 'liked': ''}`} onClick={() => handleLike(recipe)}>Click to Like</button>
           </div>
         ))}
       </div>
