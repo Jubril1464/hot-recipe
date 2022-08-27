@@ -1,6 +1,42 @@
+@import '/src/App.scss';
 .blur{
  height: 100%;
- background-color: #fff;
+ background-color: #000;
  backdrop-filter: blur(10px);
  -webkit-backdrop-filter: blur(10px);
+ width: 100%;
+}
+.recipeCardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 5rem;
+    justify-content: space-around;
+    align-items: center;
+    .recipeCard{
+        width: 30rem;
+       
+       
+    }
+    .recipeCard:not(:last-child){
+        margin-right: 2rem;
+        margin-bottom: 3rem;
+        
+
+    }
+    .recipeCard--title{
+        font-size: 2rem;
+        padding: .5rem;
+        
+        display: inline-block;
+        background-image: linear-gradient(to right, $color--primary, $color--secondary);
+        -webkit-background-clip: text;
+        color: transparent;
+        transition: all .2s;
+        cursor: pointer;
+        &:hover{
+            transform:  skewY(2deg) skewX(15deg) scale(1.1);
+            text-shadow: .5rem 1rem 2rem rgba(0,0,0,.2);
+        }
+        
+    }
 }
