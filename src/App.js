@@ -19,7 +19,7 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li className="nav__item">
-              <Link to="/">Recipes</Link>
+              <Link to="/recipes">Recipes</Link>
             </li>
             <li className="nav__item">
               <Link to="/">Your Liked Recipe</Link>
