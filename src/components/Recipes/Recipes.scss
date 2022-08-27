@@ -27,6 +27,22 @@
     .recipe{
         margin-bottom: 1rem;
         width: 30rem;
+
+          .btn{
+            padding: 1rem;
+            background-color: $color--primary;
+            border: none;
+            cursor: pointer;
+            transition: all .2s;
+            &:active{
+                outline: none;
+
+            }
+        }
+       .liked{
+        background-color: $color--secondary;
+        color: #fff;
+       }
     &__title{
         font-size: 1.2rem;
         padding: 1rem;
@@ -41,7 +57,7 @@
             
         }
         &:hover > .recipe__image{
-           transform: scale(1.1);
+           
         }
     }
 

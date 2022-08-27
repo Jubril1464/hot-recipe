@@ -14,7 +14,17 @@
     align-items: center;
     .recipeCard{
         width: 30rem;
-       
+        .btn{
+            padding: 1rem;
+            background-color: $color--primary;
+            border: none;
+            &:active{
+                outline: none;
+            }
+        }
+       .liked{
+        background-color: $color--secondary;
+       }
        
     }
     .recipeCard:not(:last-child){

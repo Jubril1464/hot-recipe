@@ -18,7 +18,7 @@ const Home = () => {
           <p className="home__heroSection-textbox--secondary">
             No need to worry again!
           </p>
-          <Link to="/" className="home__heroSection-textbox--cta">
+          <Link to="/recipes" className="home__heroSection-textbox--cta">
             Explore Recipes
           </Link>
         </div>
