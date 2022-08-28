@@ -2,6 +2,7 @@ import React from "react";
 import "./Home.scss";
 import { Link } from "react-router-dom";
 import img from '../../img.png'
+import Random from "../../components/Random/Random";
 
 
 const Home = () => {
@@ -27,13 +28,17 @@ const Home = () => {
           {/* <div className="container1"></div>
           <div className="container2"></div> */}
         </div>
-
       </div>
 
       <div className="recipes">
         <h1 className="heading--primary">Recipes you may like</h1>
-        <p className="paragraph">We provide a variety of food and beverage recipes <br /> with high taste from famous chef</p>
-
+        <p className="paragraph">
+          We provide a variety of food and beverage recipes <br /> with high
+          taste from famous chef
+        </p>
+        
+          <Random />
+        
       </div>
     </div>
   );

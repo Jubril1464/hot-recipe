@@ -1,7 +1,6 @@
 import { useState, useEffect, useLayoutEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./Searched.scss";
-import { likeRecipes } from "../../components/LikedRecipes/utils/likedRecipes.utils";
 const Searched = () => {
   const [searchedRecipe, setSearchRecipe] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -10,7 +9,6 @@ const Searched = () => {
   const [eventsData, setEventData] = useState([])
 
   const param = useParams();
-  let REACT_APP_RECIPE_API_KEY = "eab71f0e42cb4b79b29a0ac214d577c3";
 
   const getSearchedRecipes = async (search) => {
     setLoading(true);

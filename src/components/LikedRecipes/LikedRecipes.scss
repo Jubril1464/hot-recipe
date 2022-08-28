@@ -1,0 +1,41 @@
+@import '/src/App.scss';
+.likeRecipes{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 10rem;
+    
+   
+    .likeRecipes__container{
+    
+        display: flex;
+        padding: 1rem;
+        flex-wrap: wrap;
+      
+        .like__recipe{
+            width: 30rem;
+            position: relative;
+
+            &:not(:last-child){
+                
+                margin-right: 2rem;
+                margin-bottom: 2rem;
+            }
+            &--image{
+                width: 100%;
+
+            }
+            &--title{
+                font-size: 2rem;
+                padding: 1rem;
+                background:linear-gradient(to right, $color--primary, $color--secondary);
+                color: $color--white;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+
+            }
+        }
+    }
+}

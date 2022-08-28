@@ -60,6 +60,10 @@
     background-color: #fff;
     margin-top: 20rem;
     padding: 5rem 1rem;
+    .recipesContainer{
+      display: flex;
+    justify-content: center;
+    }
     .heading--primary{
         text-align: center;
         text-transform: capitalize;

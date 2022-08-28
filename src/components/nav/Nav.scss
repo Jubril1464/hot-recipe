@@ -1,0 +1,45 @@
+ @import '/src/App.scss';
+ .header {
+    display: flex;
+    justify-content: space-around;
+    font-size: 2rem;
+    padding-top: 2rem;
+    position: fixed;
+    width: 100%;
+    z-index: 2000;
+    background-color: $color--white;
+    &__logo {
+      &--text {
+        font-size: 3rem;
+        &1 {
+          color: $color--primary;
+        }
+      }
+    }
+
+    .nav {
+      &__items {
+        .nav__item {
+          display: inline-block;
+          padding: 1rem;
+          list-style: none;
+
+          a:visited,
+          a:link {
+            text-decoration: none;
+            color: black;
+          }
+        }
+      }
+    }
+    &__search{
+      
+
+        &--input{
+            padding: .8rem 1rem;
+            border: none;
+            background-color: $color--white;
+
+        }
+    }
+  }
