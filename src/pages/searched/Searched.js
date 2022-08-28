@@ -56,10 +56,12 @@ const Searched = () => {
           searchedRecipe.map(({ title, id, image }) => (
             <div className="recipeCard" key={id}>
               <h4 className="recipeCard--title">{title}</h4>
-              <img src={image} alt={title} />
+              <Link to={`/recipe/${id}`}>
+                <img src={image} alt={title} />
+              </Link>
               <button
                 onClick={() => handleLike(id)}
-                className={`btn ${likes.includes(id) ? 'liked': ''}`}
+                className={`btn ${likes.includes(id) ? "liked" : ""}`}
               >
                 Click to Like
               </button>

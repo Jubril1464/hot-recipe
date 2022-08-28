@@ -7,6 +7,7 @@ import Home from "./pages/home/Home";
 import Searched from "./pages/searched/Searched";
 import Recipes from "./components/Recipes/Recipes";
 import LikedRecipes from "./components/LikedRecipes/LikedRecipes";
+import Recipe from "./pages/Recipe/Recipe";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/searched/:search" element={<Searched />} />
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/likedrecipes" element={<LikedRecipes />} />
+        <Route path="/recipe/:id" element={<Recipe />} />
       </Routes>
     </div>
   );
