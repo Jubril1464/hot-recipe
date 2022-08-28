@@ -1,46 +1,95 @@
- @import '/src/App.scss';
- .header {
-    display: flex;
-    justify-content: space-around;
-    font-size: 2rem;
-    padding-top: 2rem;
-    position: fixed;
-    width: 100%;
-    z-index: 2000;
-    background-color: $color--white;
-    box-shadow: 0 10px 20px rgba(0,0,0,.3);
-    &__logo {
-      &--text {
-        font-size: 3rem;
-        &1 {
-          color: $color--primary;
-        }
+@import "/src/App.scss";
+.header {
+  display: flex;
+  justify-content: space-around;
+  font-size: 2rem;
+  padding-top: 2rem;
+  position: fixed;
+  width: 100%;
+  z-index: 2000;
+  background-color: $color--white;
+
+  .nav__icon {
+    .icon{
+  position: relative;
+  margin-top: 1rem;
+}
+
+
+  }
+  &__logo {
+    &--text {
+      font-size: 3rem;
+      &1 {
+        color: $color--primary;
       }
     }
+  }
 
-    .nav {
-      &__items {
-        .nav__item {
-          display: inline-block;
-          padding: 1rem;
-          list-style: none;
+  .nav {
+    &__times{
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 5rem;
+      transition:  all .2s;
+    }
+   
+    @include respond(tab-port) {
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: linear-gradient(
+        to right bottom,
+        $color--primary,
+        $color--secondary
+      );
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+      z-index: 5000;
+    }
+    &__items {
+      .nav__item {
+        display: inline-block;
+        padding: 1rem;
+        list-style: none;
+        .active{
+          padding: 1rem 2rem;
+          background-color: $color--primary;
+          border-radius: 10px;
+        }
+        @include respond(tab-port) {
+          display: block;
+          text-align: center;
+          padding: 1 2rem;
+          border: 1px solid $color--primary;
+        }
 
-          a:visited,
-          a:link {
-            text-decoration: none;
-            color: black;
+        a:visited,
+        a:link {
+          text-decoration: none;
+          color: black;
+          @include respond(tab-port){
+            color: $color--white;
           }
         }
       }
     }
-    &__search{
-      
-
-        &--input{
-            padding: .8rem 1rem;
-            border: none;
-            background-color: $color--white;
-
-        }
+  }
+   .none {
+      @include respond(tab-port){
+        display: none;
+        visibility: hidden;
+      }
+    }
+  &__search {
+    &--input {
+      padding: 0.8rem 1rem;
+      border: none;
+      background-color: $color--white;
     }
   }
+}

@@ -1,7 +1,8 @@
 import React from "react";
 import "./Home.scss";
 import { Link } from "react-router-dom";
-import img from '../../img.png'
+import img from '../../Assets/img.png';
+
 import Random from "../../components/Random/Random";
 
 
@@ -9,6 +10,12 @@ const Home = () => {
   return (
     <div className="home">
       <div className="home__heroSection">
+        <div className="container1">
+          <img src={img} alt="" className="img" />
+        </div>
+        <div className="container2" >
+          <img src={img} alt="" className="img" />
+        </div>
         <div className="home__heroSection-textbox">
           <h1 className="home__heroSection-textbox--primary">
             Let's start cooking with popular recipes
@@ -23,10 +30,9 @@ const Home = () => {
             Explore Recipes
           </Link>
         </div>
+
         <div className="imgContainer">
           <img src={img} alt="" className="img" />
-          {/* <div className="container1"></div>
-          <div className="container2"></div> */}
         </div>
       </div>
 
@@ -36,9 +42,8 @@ const Home = () => {
           We provide a variety of food and beverage recipes <br /> with high
           taste from famous chef
         </p>
-        
-          <Random />
-        
+
+        <Random />
       </div>
     </div>
   );

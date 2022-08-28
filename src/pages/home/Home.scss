@@ -1,9 +1,65 @@
 @import "/src/App.scss";
 .home {
   position: relative;
+  
 
   padding-top: 5rem;
+  @include respond(phone) {
+    padding-top: 14rem;
+  }
   &__heroSection {
+    position: relative;
+
+    .container1 {
+        position: absolute;
+        height: 20rem;
+        width: 20rem;
+        background-color: $color--white;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+        right: 3rem;
+        bottom: -10rem;
+        @include respond(tab-land){
+          height: 15rem;
+          width: 15rem;
+          top: 70%;
+        }
+        @include respond(tab-port){
+          top: 70%;
+        }
+        @include respond(phone){
+          height: 10rem;
+          width: 10rem;
+        }
+        .img{
+          width: 100%;
+          height: 100%;
+        }
+       
+      }
+      .container2 {
+        position: absolute;
+        height: 20rem;
+        width: 20rem;
+        background-color: $color--white;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+        left: 50%;
+        top: 40%;
+         @include respond(tab-land){
+          height: 15rem;
+          width: 15rem;
+          
+        }
+          
+        @include respond(phone){
+          height: 10rem;
+          width: 10rem;
+        }
+        .img{
+          width: 100%;
+          height: 100%;
+        }
+       
+      }
     display: flex;
     justify-content: space-around;
     &-textbox {
@@ -12,6 +68,9 @@
       &--primary {
         font-size: 6rem;
         margin-bottom: 3rem;
+        @include respond(phone) {
+          font-size: 2rem;
+        }
       }
       &--secondary {
         font-size: 1.5rem;
@@ -28,52 +87,54 @@
       }
     }
     .imgContainer {
-      width: 350px;
-      height: 350px;
+      width: 35rem;
+      height: 35rem;
+      @include respond(phone) {
+        width: 20rem;
+        height: 20rem;
+      }
       .img {
         width: 100%;
         height: 100%;
       }
-      .container1 {
-        position: absolute;
-        height: 200px;
-        width: 200px;
-        background-color: $color--white;
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
-         bottom: 0;
-        transform: translateX(-50%);
-        
-      }
-      .container2 {
-        position: absolute;
-        height: 200px;
-        width: 200px;
-        background-color: $color--white;
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
-        right: 10rem;
-        bottom: -10rem;
-       
-      }
+      
     }
   }
-  .recipes{
+  .recipes {
     background-color: #fff;
     margin-top: 20rem;
     padding: 5rem 1rem;
-    .recipesContainer{
+    .recipesContainer {
       display: flex;
-    justify-content: center;
+      justify-content: center;
     }
-    .heading--primary{
-        text-align: center;
-        text-transform: capitalize;
-        font-size: 6rem;
-        font-weight: 100;
+    .heading--primary {
+      text-align: center;
+      text-transform: capitalize;
+      font-size: 6rem;
+      font-weight: 100;
+      display: inline-block;
+      background-image: linear-gradient(
+        to right,
+        $color--primary,
+        $color--secondary
+      );
+      -webkit-background-clip: text;
+      color: transparent;
+      transition: all 0.2s;
+      cursor: pointer;
+      &:hover {
+        transform: skewY(2deg) skewX(15deg) scale(1.1);
+        text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
+      }
+      @include respond(phone) {
+        font-size: 4rem;
+      }
     }
-    .paragraph{
-        font-size: 2rem;
-        text-align: center;
-        color: rgba(0, 0, 0, 0.6);
+    .paragraph {
+      font-size: 2rem;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.6);
     }
   }
 }

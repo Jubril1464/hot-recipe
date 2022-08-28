@@ -1,52 +1,56 @@
-@import '/src/App.scss';
-.blur{
- height: 100%;
- background-color: #000;
- backdrop-filter: blur(10px);
- -webkit-backdrop-filter: blur(10px);
- width: 100%;
+@import "/src/App.scss";
+.searchedRecipe {
+  position: relative;
+  .arrow-left {
+    font-size: 5rem;
+    position: absolute;
+    left: 0;
+    top: 5rem;
+    color: $color--primary;
+    cursor: pointer;
+  }
 }
 .recipeCardContainer {
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 5rem;
-    justify-content: space-around;
-    align-items: center;
-    .recipeCard{
-        width: 30rem;
-        .btn{
-            padding: 1rem;
-            background-color: $color--primary;
-            border: none;
-            &:active{
-                outline: none;
-            }
-        }
-       .liked{
-        background-color: $color--secondary;
-       }
-       
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 5rem;
+  justify-content: space-around;
+  align-items: center;
+  .recipeCard {
+    width: 30rem;
+    .btn {
+      padding: 1rem;
+      background-color: $color--primary;
+      border: none;
+      &:active {
+        outline: none;
+      }
     }
-    .recipeCard:not(:last-child){
-        margin-right: 2rem;
-        margin-bottom: 3rem;
-        
+    .liked {
+      background-color: $color--secondary;
+    }
+  }
+  .recipeCard:not(:last-child) {
+    margin-right: 2rem;
+    margin-bottom: 3rem;
+  }
+  .recipeCard--title {
+    font-size: 2rem;
+    padding: 0.5rem;
 
+    display: inline-block;
+    background-image: linear-gradient(
+      to right,
+      $color--primary,
+      $color--secondary
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: all 0.2s;
+    cursor: pointer;
+    &:hover {
+      transform: skewY(2deg) skewX(15deg) scale(1.1);
+      text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
     }
-    .recipeCard--title{
-        font-size: 2rem;
-        padding: .5rem;
-        
-        display: inline-block;
-        background-image: linear-gradient(to right, $color--primary, $color--secondary);
-        -webkit-background-clip: text;
-        color: transparent;
-        transition: all .2s;
-        cursor: pointer;
-        &:hover{
-            transform:  skewY(2deg) skewX(15deg) scale(1.1);
-            text-shadow: .5rem 1rem 2rem rgba(0,0,0,.2);
-        }
-        
-    }
+  }
 }

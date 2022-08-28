@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './Recipe.scss'
+import { APIKEY } from '../../APIKEY'
 
 const Recipe = () => {
     const [details, setDetails] = useState({});
@@ -10,7 +11,7 @@ const Recipe = () => {
 
     const fetchDetails = async () => {
       const resp = await fetch(
-        `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=b69113792df04b00908972c6955043e3`
+        `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${APIKEY}`
       );
       const data = await resp.json();
       return data;

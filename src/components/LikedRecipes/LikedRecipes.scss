@@ -4,6 +4,16 @@
     justify-content: center;
     flex-direction: row;
     padding-top: 10rem;
+    position: relative;
+
+    .arrow-left{
+        font-size: 5rem;
+        position: absolute;
+        left: 0;
+        top :7rem;
+        color: $color--primary;
+        cursor: pointer;
+    }
     
    
     .likeRecipes__container{
@@ -11,6 +21,9 @@
         display: flex;
         padding: 1rem;
         flex-wrap: wrap;
+        @include respond(phone){
+            justify-content: center;
+        }
       
         .like__recipe{
             width: 30rem;

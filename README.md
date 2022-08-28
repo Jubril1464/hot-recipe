@@ -6,6 +6,30 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+## Dependecies used : 
+Redux, React-Redux, Redux-logger
+SASS 
+React-spinner
+React-Router-dom - used for navigation
+
+### REDUX
+The Redux was used for managing the the app state(the liked recipe state), 
+The Redux-logger : i used redux_logger to replay Redux actions + state , network requests, console logs and so on
+The Redux-middleware allows developer to intercept every action sent to the reducer so you can make changes to the action or cancel it .
+For more on it : https://react-redux.js.org
+
+### SASS
+SASS (Syntactically awesome style sheet) - is an extension of CSS that enables developers to use things like varaible, nested rule, inline import and more.
+The media query of this app was written with the power of SASS which is the the mixin and include
+### REACT-ROUTER-DOM
+I used react-router-dom to implement dynamic routing in the web app. it allows the user to display and navigate them. The version used is V6
+For more on it : https://reactrouter.com
+### 
+## NOTE : 
+If there is error 402 or 401, that means you have exceeded the maximum request given by the API owner
+so you can either pay for the API or create a new account at : https://spoonacular.com/food-api
+After that there is a file named APIKEY at the src folder, change the apikey to the new generated one
+
 ### `npm start`
 
 Runs the app in the development mode.\

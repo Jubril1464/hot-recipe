@@ -1,12 +1,13 @@
 import { useState, useEffect, useLayoutEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import "./Searched.scss";
+
 const Searched = () => {
   const [searchedRecipe, setSearchRecipe] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [likes, setLikes] = useState([])
-  const [eventsData, setEventData] = useState([])
+  const [likes, setLikes] = useState([]);
+  const navigate = useNavigate();
 
   const param = useParams();
 
@@ -15,7 +16,7 @@ const Searched = () => {
 
     try {
       const res = await fetch(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=b69113792df04b00908972c6955043e3&query=${search}`
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=09154b05e520491eb51574522fd36aff&query=${search}`
       );
       if (!res.ok) {
         throw new Error("Sorry something went wrong!");
@@ -43,11 +44,15 @@ const Searched = () => {
   //   setState(true)
   // }
   const handleLike = (id) => {
-    setLikes(likes.concat(id))
-  }
+    setLikes(likes.concat(id));
+  };
 
   return (
     <div className={`searchedRecipe`}>
+      <span className="arrow-left" onClick={() => navigate(-1)}>
+        &larr;
+      </span>
+
       {loading && <h1>Loading...</h1>}
       {/* {error && <p>{error}</p>} */}
 

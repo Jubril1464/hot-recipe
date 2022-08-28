@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import './Recipes.scss'
 import ClipLoader from 'react-spinners/ClipLoader'
+import { BounceLoader } from "react-spinners";
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import { addLike } from "../../redux/likeRecipes/likeRecipes.action";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { APIKEY } from "../../APIKEY";
 
 
 const Recipes = () => {
+  const navigate= useNavigate()
   const selector = useSelector(state => state.likeRecipe)
   const dispatch = useDispatch()
   console.log(selector);
@@ -17,14 +20,16 @@ const Recipes = () => {
 
   const getRandomRecipes = async () => {
     const getData = localStorage.getItem("popular");
+    localStorage.clear('popular')
+    
     
 
     if (getData) {
       setRandom(JSON.parse(getData));
     } else {
       const resp = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=b69113792df04b00908972c6955043e3&number=32`
-        );
+        `https://api.spoonacular.com/recipes/random?apiKey=${APIKEY}&number=32`
+      );
         if (resp.ok) {
             const data = await resp.json();
             setIsLoading(false)
@@ -48,6 +53,10 @@ const Recipes = () => {
   };
   return (
     <div className="recipes">
+      <span className="arrow-left" onClick={() => navigate(-1)}>
+        &larr;
+      </span>
+
       {isLoading ? (
         <ClipLoader color={"#000"} size={150} />
       ) : (
@@ -58,7 +67,7 @@ const Recipes = () => {
         {random.map((recipe) => (
           <div className="recipe" key={recipe.id}>
             <h3 className="recipe__title">{recipe.title}</h3>
-            <Link  to={`/recipe/${recipe.id}`}>
+            <Link to={`/recipe/${recipe.id}`}>
               <img src={recipe.image} alt="title" className="recipe__image" />
             </Link>
             <button
