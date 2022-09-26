@@ -13,8 +13,8 @@ React-spinner
 React-Router-dom - used for navigation
 
 ### REDUX
-The Redux was used for managing the the app state(the liked recipe state), 
-The Redux-logger : i used redux_logger to replay Redux actions + state , network requests, console logs and so on
+The Redux was used for managing the the app state(the liked recipe state).
+## The Redux-logger  i used redux_logger to replay Redux actions + state , network requests, console logs and so on
 The Redux-middleware allows developer to intercept every action sent to the reducer so you can make changes to the action or cancel it .
 For more on it : https://react-redux.js.org
 
@@ -29,7 +29,8 @@ For more on it : https://reactrouter.com
 If there is error 402 or 401, that means you have exceeded the maximum request given by the API owner
 so you can either pay for the API or create a new account at : https://spoonacular.com/food-api
 After that there is a file named APIKEY at the src folder, change the apikey to the new generated one
-
+### To install all dependencies run npm install or yarn in your CMD or Terminal 
+### After installing dependencies, run npm start to start the react app
 ### `npm start`
 
 Runs the app in the development mode.\
