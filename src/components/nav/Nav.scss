@@ -10,12 +10,12 @@
   background-color: $color--white;
 
   .nav__icon {
-    .icon{
-  position: relative;
-  margin-top: 1rem;
-}
-
-
+    display: none;
+    visibility: hidden;
+    @include respond(tab-port) {
+      display: block;
+      visibility: visible;
+    }
   }
   &__logo {
     &--text {
@@ -27,69 +27,162 @@
   }
 
   .nav {
-    &__times{
+    &__times {
       position: absolute;
       top: 0;
       right: 0;
       font-size: 5rem;
-      transition:  all .2s;
+      transition: all 0.2s ;
     }
-   
     @include respond(tab-port) {
-      position: absolute;
-      left: 0;
-      top: 0;
-      background: linear-gradient(
-        to right bottom,
-        $color--primary,
-        $color--secondary
-      );
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 3rem;
-      z-index: 5000;
+       position: absolute;
+        left: -40rem;
+        top: 0;
+        background: linear-gradient(
+          to right bottom,
+          $color--primary,
+          $color--secondary
+        );
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        font-size: 3rem;
+        z-index: 2000;
+        transition: all .3s;
+        
     }
+  
     &__items {
+      @include respond(tab-port) {
+        margin-top: -30rem;
+        
+      }
       .nav__item {
         display: inline-block;
         padding: 1rem;
         list-style: none;
-        .active{
+        @include respond (tab-port){
+          text-align: center;
+        display: block !important;
+        margin-bottom: 2rem;
+       
+      
+      
+        }
+        .active {
           padding: 1rem 2rem;
           background-color: $color--primary;
           border-radius: 10px;
+          @include respond(tab-port) {
+            border: none;
+            background-color: none;
+            border-left: 2px solid $color--white;
+            border-radius: 0;
+           
+          }
         }
-        @include respond(tab-port) {
-          display: block;
-          text-align: center;
-          padding: 1 2rem;
-          border: 1px solid $color--primary;
+        .respond {
+          @include respond(tab-port) {
+            display: block;
+            text-align: center;
+            padding: 1 2rem;
+            border: 1px solid $color--primary;
+          }
         }
 
         a:visited,
         a:link {
           text-decoration: none;
           color: black;
-          @include respond(tab-port){
-            color: $color--white;
-          }
+          // @include respond(tab-port) {
+          //   color: $color--white;
+          // }
         }
       }
     }
   }
-   .none {
-      @include respond(tab-port){
-        display: none;
-        visibility: hidden;
-      }
-    }
+ 
   &__search {
     &--input {
       padding: 0.8rem 1rem;
       border: none;
       background-color: $color--white;
+
+      @include respond(phone) {
+        width: 10rem;
+      }
     }
   }
+}
+.navigation__button {
+
+  height: 7rem;
+  width: 7rem;
+  position: fixed;
+  top: 1.5rem;
+  left: 4rem;
+  border-radius: 50%;
+  z-index: 4000;
+  @include respond(tab-port) {
+    left: 2rem;
+  }
+ 
+  text-align: center;
+  cursor: pointer;
+}
+.navigation__checkbox {
+  display: none;
+}
+
+.navigation__icon {
+  position: relative;
+  margin-top: 2rem;
+}
+.navigation__icon,
+.navigation__icon::before,
+.navigation__icon::after {
+  width: 2.5rem;
+  height: 2px;
+  background-color: #000;
+  display: inline-block;
+  
+}
+.navigation__icon::before,
+.navigation__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  transition: all 0.2s ;
+}
+.navigation__icon::before {
+  top: -0.6rem;
+}
+.navigation__icon::after {
+  top: 0.6rem;
+}
+.navigation__button:hover .navigation__icon::before {
+  top: -0.7rem;
+}
+.navigation__button:hover .navigation__icon::after {
+  top: 0.7rem;
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+  background-color: transparent;
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon:after {
+  top: 0;
+  transform: rotate(-135deg);
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon:before {
+  top: 0;
+  transform: rotate(135deg);
+}
+  
+.navigation__checkbox:checked + .navigation__button {
+  left: 3rem;
+}
+
+.respond__nav {
+  left: 0 !important;
 }

@@ -1,31 +1,32 @@
-import { React, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import './Recipe.scss'
-import { APIKEY } from '../../APIKEY'
+import { React, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import "./Recipe.scss";
+import { APIKEY } from "../../APIKEY";
 
 const Recipe = () => {
-    const [details, setDetails] = useState({});
-      const [activeTab, setActiveTab] = useState("instructions");
+  const [details, setDetails] = useState({});
+  const [activeTab, setActiveTab] = useState("instructions");
+  const [loading, setLoading] = useState(true)
 
-    const params = useParams();
+  const params = useParams();
 
-    const fetchDetails = async () => {
-      const resp = await fetch(
-        `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${APIKEY}`
-      );
-      const data = await resp.json();
-      return data;
+  const fetchDetails = async () => {
+    const resp = await fetch(
+      `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${APIKEY}`
+    );
+    const data = await resp.json();
+    return data;
+  };
+  useEffect(() => {
+    let isMounted = true;
+
+    fetchDetails().then((data) => {
+      if (isMounted) setDetails(data);
+    });
+    return () => {
+      isMounted = false;
     };
-     useEffect(() => {
-       let isMounted = true;
-
-       fetchDetails().then((data) => {
-         if (isMounted) setDetails(data);
-       });
-       return () => {
-         isMounted = false;
-       };
-     },[params.id]);
+  }, [params.id]);
   return (
     <div className="recipe__details">
       <div className="recipe__details--container">
@@ -54,14 +55,14 @@ const Recipe = () => {
           </button>
           {activeTab === "ingredients" && (
             <ul>
-              {details.extendedIngredients.map(({ id, original }) => (
+              {details.extendedIngredients?.map(({ id, original }) => (
                 <li key={id}>{original}</li>
               ))}
             </ul>
           )}
 
           {activeTab === "instructions" && (
-            <div className='instructions'>
+            <div className="instructions">
               <p dangerouslySetInnerHTML={{ __html: details.summary }}></p>
               <p dangerouslySetInnerHTML={{ __html: details.instructions }}></p>
             </div>
@@ -70,6 +71,6 @@ const Recipe = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Recipe
+export default Recipe;

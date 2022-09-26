@@ -27,7 +27,7 @@ const Home = () => {
             No need to worry again!
           </p>
           <Link to="/recipes" className="home__heroSection-textbox--cta">
-            Explore Recipes
+           <span>Explore Recipes</span> 
           </Link>
         </div>
 

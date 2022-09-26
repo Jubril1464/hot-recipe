@@ -1,13 +1,13 @@
 import "./App.scss";
-import { Routes, Route,Link,useLocation } from "react-router-dom";
-import Pages from "./pages/home/Pages";
-import Search from "./components/search/Search";
+import { Routes, Route,useLocation } from "react-router-dom";
+
 import Nav from "./components/nav/Nav";
 import Home from "./pages/home/Home";
 import Searched from "./pages/searched/Searched";
 import Recipes from "./components/Recipes/Recipes";
 import LikedRecipes from "./components/LikedRecipes/LikedRecipes";
 import Recipe from "./pages/Recipe/Recipe";
+import Footer from "./components/Footer/Footer";
 
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
         <Route path="/likedrecipes" element={<LikedRecipes />} />
         <Route path="/recipe/:id" element={<Recipe />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

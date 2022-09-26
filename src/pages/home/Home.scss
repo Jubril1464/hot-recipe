@@ -18,6 +18,13 @@
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
         right: 3rem;
         bottom: -10rem;
+         transition: all .2s;
+         animation: slideInRight 1s;
+       
+        &:hover {
+           outline: 10px solid $color--primary;
+          outline-offset: 10px 
+        }
         @include respond(tab-land){
           height: 15rem;
           width: 15rem;
@@ -44,6 +51,14 @@
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
         left: 50%;
         top: 40%;
+        transition: all .2s;
+        animation: slideInLeft 1s;
+        backface-visibility: hidden;
+       
+        &:hover {
+           outline: 10px solid $color--primary;
+          outline-offset: 10px 
+        }
          @include respond(tab-land){
           height: 15rem;
           width: 15rem;
@@ -77,13 +92,52 @@
         color: rgba(0, 0, 0, 0.6);
         margin-bottom: 3rem;
       }
+      &--cta {
+        position: relative;
+       
+        span {
+          position: relative;
+          z-index: 2;
+        }
+      }
+      &--cta::before {
+          content: '';
+          height:100%;
+          width: 0;
+          background-color: $color--primary;
+          position: absolute;
+          top: 0;
+          left: 0;
+          transition: all .3s ;
+          z-index: 1;
+          visibility: hidden;
+          opacity: 0;
+          border-radius: 5px;
+         
+         
+        }
+        
       &--cta:visited,
       &--cta:link {
         text-decoration: none;
         padding: 1.5rem;
-        background-color: $color--primary;
+        border:  2px solid $color--primary;
+       
         font-size: 1.5rem;
         border-radius: 5px;
+        color: black;
+        transition: all .6s;
+        transform-origin: center;
+
+      &:hover {
+         border:  none;
+      }
+        &:hover::before {
+           width: 100%;
+           visibility: visible;
+           opacity: 1;
+        
+        }
       }
     }
     .imgContainer {
@@ -119,6 +173,7 @@
         $color--primary,
         $color--secondary
       );
+      background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
       transition: all 0.2s;
@@ -136,5 +191,37 @@
       text-align: center;
       color: rgba(0, 0, 0, 0.6);
     }
+  }
+}
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  25% {
+    opacity: .4;
+  }
+50% {
+  opacity: .6;
+}
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  25% {
+    opacity: .4;
+  }
+50% {
+  opacity: .6;
+}
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

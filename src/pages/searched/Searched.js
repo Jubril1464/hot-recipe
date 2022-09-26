@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect} from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import "./Searched.scss";
 
@@ -62,7 +62,8 @@ const Searched = () => {
             <div className="recipeCard" key={id}>
               <h4 className="recipeCard--title">{title}</h4>
               <Link to={`/recipe/${id}`}>
-                <img src={image} alt={title} />
+                
+                <img src={image} alt={title} className = 'recipeCard__image' />
               </Link>
               <button
                 onClick={() => handleLike(id)}

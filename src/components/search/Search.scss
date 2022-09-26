@@ -6,6 +6,9 @@
     border: none;
     background-color: $color--white;
     border: 1px solid $color--primary;
+    @include respond(phone) {
+      width: 12rem;
+    }
     &:focus{
       outline: none;
     }

@@ -5,6 +5,8 @@
     flex-direction: row;
     padding-top: 10rem;
     position: relative;
+    height: auto;
+    
 
     .arrow-left{
         font-size: 5rem;
@@ -17,7 +19,7 @@
     
    
     .likeRecipes__container{
-    
+    position: relative;
         display: flex;
         padding: 1rem;
         flex-wrap: wrap;

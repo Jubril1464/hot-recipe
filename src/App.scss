@@ -48,6 +48,7 @@ $color--bg: #ecfeff;
 
 html{
   font-size: 62.5%; /* 1rem = 10px, 10/16 = 62.5% */
+  font-family: Cormorant Infant;
  
   
   @include respond(tab-land){
@@ -59,7 +60,9 @@ html{
    @include respond(phone){
     font-size: 43.7%;
   }
+  
 }
+
 body {
   margin: 0;
   padding: 0;

@@ -1,5 +1,9 @@
 @import "/src/App.scss";
 .searchedRecipe {
+  padding-top: 20rem;
+  padding-bottom: 20rem;
+  font-family:Arial, Helvetica, sans-serif;
+  
   position: relative;
   .arrow-left {
     font-size: 5rem;
@@ -11,13 +15,17 @@
   }
 }
 .recipeCardContainer {
+
+
   display: flex;
   flex-wrap: wrap;
   padding-top: 5rem;
   justify-content: space-around;
   align-items: center;
+  
   .recipeCard {
-    width: 30rem;
+     width: 20rem;
+   
     .btn {
       padding: 1rem;
       background-color: $color--primary;
@@ -28,6 +36,11 @@
     }
     .liked {
       background-color: $color--secondary;
+      color: #fff
+    }
+    &__image{
+      width: 100%;
+      height: 100%;
     }
   }
   .recipeCard:not(:last-child) {
@@ -44,6 +57,7 @@
       $color--primary,
       $color--secondary
     );
+    background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     transition: all 0.2s;

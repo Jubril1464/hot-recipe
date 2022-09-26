@@ -1,65 +1,77 @@
-import {React,useState,useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import './Nav.scss'
+import "./Nav.scss";
 import Search from "../search/Search";
 const Nav = () => {
-  const [click, setClick] = useState(false);
-  const [button, setButton] = useState(false);
-  const [active, setActive] = useState('home')
+  const [active, setActive] = useState("home");
+  const [checked, setChecked] = useState(false);
 
-  const handleClick =()=> setClick(!click)
-  const closeMobileMenu = () => setClick(false)
-  
-  const showButton = () => {
-    if (window.innerWidth <= 900) {
-      setButton(true)
-    } else setButton(false)
+  document.querySelector(".nav")?.classList.remove("respond__nav");
+
+  if (checked) {
+    document.querySelector(".nav").classList.add("respond__nav");
   }
-  window.addEventListener('resize', showButton)
+  const handleClick = function (item) {
+    setActive(item)
+    setChecked(false)
+  }
+  
+    const header = document.querySelector(".header");
+    header?.addEventListener("mouseover", function (e) {
+        if (e.target.classList.contains('nav__link')) {
+          const link = e.target
+          const siblings = link?.closest('.nav')?.querySelectorAll('nav__item')
+          console.log(siblings);
+          
+       }
+    });
+
  
   return (
-    <div className="nav">
+    <div className="navContainer">
       <header className="header">
         <div className="nav__icon">
-          {button && <i className="fa fa-bars" onClick={handleClick}></i>}
-          {/* <span className={`${showButton ? "" : "icon"}`}></span> */}
+          <input
+            type="checkbox"
+            className={`navigation__checkbox`}
+            id="navi-toggle"
+            checked={checked}
+            onChange={(e) => setChecked(e.target.checked)}
+          />
+          <label htmlFor="navi-toggle" className={`navigation__button`}>
+            <span className={`navigation__icon`}>&nbsp;</span>
+          </label>
         </div>
         <div className="header__logo">
           <p className="header__logo--text">
             HOT<span className="header__logo--text1">RECIPE</span>
           </p>
         </div>
-        <nav className={`nav ${click ? "" : "none"}`}>
-          {button && (
-            <span className="nav__times" onClick={handleClick}>
-              &times;
-            </span>
-          )}
+        <nav className="nav">
           <ul className="nav__items">
-            <li className="nav__item" onClick={closeMobileMenu}>
-              {" "}
+            <li className="nav__item">
               <Link
                 to="/"
-                className={`${active === "home" && "active"}`}
-                onClick={() => setActive("home")}
+                className={`nav__link ${active === "home" && "active"}`}
+                onClick={() => handleClick("home")}
               >
                 Home
               </Link>
             </li>
-            <li className="nav__item" onClick={closeMobileMenu}>
+            <li className="nav__item">
               <Link
                 to="/recipes"
-                className={`${active === "Recipes" && "active"}`}
-                onClick={() => setActive("Recipes")}
+                className={`nav__link ${active === "Recipes" && "active"}`}
+                onClick={() => handleClick("Recipes")}
               >
                 Recipes
               </Link>
             </li>
-            <li className="nav__item" onClick={closeMobileMenu}>
+            <li className="nav__item">
               <Link
                 to="/likedrecipes"
-                className={`${active === "Like" && "active"}`}
-                onClick={() => setActive("Like")}
+                className={`nav__link ${active === "Like" && "active"}`}
+                onClick={() => handleClick("Like")}
               >
                 Your Liked Recipe
               </Link>

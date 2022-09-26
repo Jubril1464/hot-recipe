@@ -1,5 +1,7 @@
 @import "/src//App.scss";
 .recipe__details {
+  padding: 20rem 5rem;
+  min-height: 100vh;
   .imageContainer {
     width: 30rem;
     height: 30rem;
@@ -10,6 +12,7 @@
   }
   &--title {
     font-size: 3rem;
+    margin-bottom: 2rem;
   }
   .info {
     button {
@@ -18,6 +21,7 @@
       padding: 1rem 1.5rem;
       background: none;
       border: 1px solid $color--primary;
+      margin-bottom: 2rem;
       &:active {
         outline: none;
       }
@@ -34,7 +38,7 @@
         font-size: 2rem;
         margin-left: 2rem;
         li{
-            list-style :circle;
+            list-style:decimal-leading-zero
         }
     }
     .instructions{
