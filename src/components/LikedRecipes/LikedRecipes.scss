@@ -1,56 +1,70 @@
-@import '/src/App.scss';
-.likeRecipes{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    padding-top: 10rem;
-    position: relative;
-    height: auto;
-    
+@import "/src/App.scss";
+.likeRecipes {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding-top: 10rem;
+  position: relative;
+  
+  min-height: 100vh;
 
-    .arrow-left{
-        font-size: 5rem;
-        position: absolute;
-        left: 0;
-        top :7rem;
-        color: $color--primary;
-        cursor: pointer;
-    }
+  .heading--primary{
+    margin-bottom: 5rem;
     
-   
-    .likeRecipes__container{
-    position: relative;
-        display: flex;
+  }
+  .arrow-left {
+    font-size: 5rem;
+    position: absolute;
+    left: 0;
+    top: 7rem;
+    color: $color--primary;
+    cursor: pointer;
+  }
+
+  .likeRecipes__container {
+   display: flex;
+    padding: 1rem;
+    flex-wrap: wrap;
+    @include respond(phone) {
+      justify-content: center;
+    }
+
+    .like__recipe {
+      width: 30rem;
+      position: relative;
+      height: 20rem;
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+        margin-bottom: 2rem;
+      }
+      &--image {
+        width: 100%;
+      }
+      &--title {
+        font-size: 2rem;
         padding: 1rem;
-        flex-wrap: wrap;
-        @include respond(phone){
-            justify-content: center;
-        }
-      
-        .like__recipe{
-            width: 30rem;
-            position: relative;
-
-            &:not(:last-child){
-                
-                margin-right: 2rem;
-                margin-bottom: 2rem;
-            }
-            &--image{
-                width: 100%;
-
-            }
-            &--title{
-                font-size: 2rem;
-                padding: 1rem;
-                background:linear-gradient(to right, $color--primary, $color--secondary);
-                color: $color--white;
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-
-            }
-        }
+        background: linear-gradient(
+          to right,
+          $color--primary,
+          $color--secondary
+        );
+        color: $color--white;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
+  }
+  .remove--btn {
+    border: none;
+    padding: 1.5rem 1rem;
+    background: linear-gradient(to right, $color--primary, $color--secondary);
+    cursor: pointer;
+    color: $color--white;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1.5rem;
+  }
 }

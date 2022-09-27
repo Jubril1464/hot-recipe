@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import './Recipes.scss'
-import ClipLoader from 'react-spinners/ClipLoader'
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import { addLike } from "../../redux/likeRecipes/likeRecipes.action";
 import { Link, useNavigate } from "react-router-dom";

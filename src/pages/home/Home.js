@@ -2,6 +2,8 @@ import React from "react";
 import "./Home.scss";
 import { Link } from "react-router-dom";
 import img from '../../Assets/img.png';
+import img2 from '../../Assets/img2.jpg';
+import img3 from '../../Assets/img3.jpg';
 
 import Random from "../../components/Random/Random";
 
@@ -11,10 +13,10 @@ const Home = () => {
     <div className="home">
       <div className="home__heroSection">
         <div className="container1">
-          <img src={img} alt="" className="img" />
+          <img src={img2} alt="" className="img" />
         </div>
         <div className="container2" >
-          <img src={img} alt="" className="img" />
+          <img src={img3} alt="" className="img" />
         </div>
         <div className="home__heroSection-textbox">
           <h1 className="home__heroSection-textbox--primary">

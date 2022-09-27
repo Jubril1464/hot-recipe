@@ -6,3 +6,10 @@ export const addLike = (item) => {
 
     }
 }
+
+export const removeLike = (item) => {
+    return {
+        type: LikeRecipesTypes.REMOVE_lIKES,
+        payload: item
+    }
+}

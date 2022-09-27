@@ -1,10 +1,14 @@
 import { React, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link,useLocation} from "react-router-dom";
 import "./Nav.scss";
 import Search from "../search/Search";
 const Nav = () => {
-  const [active, setActive] = useState("home");
+  const [active, setActive] = useState("Home");
   const [checked, setChecked] = useState(false);
+  const params = useLocation()
+  
+
+  
 
   document.querySelector(".nav")?.classList.remove("respond__nav");
 
@@ -15,16 +19,13 @@ const Nav = () => {
     setActive(item)
     setChecked(false)
   }
+
   
-    const header = document.querySelector(".header");
-    header?.addEventListener("mouseover", function (e) {
-        if (e.target.classList.contains('nav__link')) {
-          const link = e.target
-          const siblings = link?.closest('.nav')?.querySelectorAll('nav__item')
-          console.log(siblings);
-          
-       }
-    });
+  useEffect(() => {
+    if (params.pathname.slice(1) === "recipes") setActive("Recipes");
+    else if (params.pathname.slice(1) === '') setActive('Home');
+    else if (params.pathname.slice(1) === 'likedrecipes') setActive('Like');
+  }, [params])
 
  
   return (
@@ -52,8 +53,8 @@ const Nav = () => {
             <li className="nav__item">
               <Link
                 to="/"
-                className={`nav__link ${active === "home" && "active"}`}
-                onClick={() => handleClick("home")}
+                className={`nav__link ${active === "Home" && "active"}`}
+                onClick={() => handleClick("Home")}
               >
                 Home
               </Link>

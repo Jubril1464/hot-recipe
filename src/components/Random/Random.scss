@@ -40,16 +40,19 @@
 .spinnerContainer {
   display: flex;
   justify-content: center;
+  margin-top: 3rem;
+ 
 
   .spinner {
     width: 10rem;
     height: 10rem;
-    border-bottom: 5px solid $color--primary;
-    border-top: 5px solid $color--primary;
+   
+     border-bottom: 5px solid $color--primary;
+     border-top: 5px solid $color--primary;
 
-    border-radius: 50%;
+     border-radius: 50%;
 
-    animation: spin 1s linear infinite;
+    animation:spin 1s linear infinite;
   }
 }
 @keyframes spin {
@@ -60,3 +63,4 @@
     transform: rotate(360deg);
   }
 }
+

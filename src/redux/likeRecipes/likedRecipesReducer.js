@@ -9,6 +9,11 @@ const likeReducers = (state = INITIAL_STATE, action) => {
           ...state,
           likeRecipes: [...state.likeRecipes, action.payload]
         };
+      case LikeRecipesTypes.REMOVE_lIKES: 
+        return {
+          ...state,
+          likeRecipes : state.likeRecipes.filter(recipe => recipe.id !== action.payload.id)
+        }
       default:
         return state;
     }

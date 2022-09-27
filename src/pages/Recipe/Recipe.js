@@ -7,6 +7,7 @@ const Recipe = () => {
   const [details, setDetails] = useState({});
   const [activeTab, setActiveTab] = useState("instructions");
   const [loading, setLoading] = useState(true)
+ 
 
   const params = useParams();
 
@@ -15,12 +16,14 @@ const Recipe = () => {
       `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${APIKEY}`
     );
     const data = await resp.json();
+    
     return data;
   };
   useEffect(() => {
     let isMounted = true;
 
     fetchDetails().then((data) => {
+      if(data) setLoading(false)
       if (isMounted) setDetails(data);
     });
     return () => {
@@ -68,6 +71,13 @@ const Recipe = () => {
             </div>
           )}
         </div>
+        {loading && (
+          <div className="dot__container">
+            <div className="dot dot1"></div>
+            <div className="dot dot2"></div>
+            <div className="dot dot3"></div>
+          </div>
+        )}
       </div>
     </div>
   );
