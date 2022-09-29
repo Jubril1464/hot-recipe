@@ -2,9 +2,15 @@ import { React, useState, useEffect } from "react";
 import { Link,useLocation} from "react-router-dom";
 import "./Nav.scss";
 import Search from "../search/Search";
+
+
+
+const navContainer = document.querySelector(".navContainer");
+console.log(navContainer);
 const Nav = () => {
   const [active, setActive] = useState("Home");
   const [checked, setChecked] = useState(false);
+  const [sticky, setSticky] = useState(false)
   const params = useLocation()
   
 
@@ -27,10 +33,31 @@ const Nav = () => {
     else if (params.pathname.slice(1) === 'likedrecipes') setActive('Like');
   }, [params])
 
+  useEffect(() => {
+     
+  const stickyNav = function (entries) {
+    const [entry] = entries;
+    console.log(entry);
+    
+    if(!entry.isIntersecting) setSticky(true)
+    else setSticky(false)
+
+  };
+ let navObserver = new IntersectionObserver(stickyNav, {
+    root: null,
+    threshold: 0,
+  });
+    navObserver.observe(document.querySelector('.navContainer'));
+    return () => {
+    navObserver = null
+    }
+  })
+ 
+  
  
   return (
     <div className="navContainer">
-      <header className="header">
+      <header className={`header ${sticky && 'sticky'}`}>
         <div className="nav__icon">
           <input
             type="checkbox"

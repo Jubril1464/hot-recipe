@@ -5,7 +5,7 @@
   flex-direction: row;
   padding-top: 10rem;
   position: relative;
-  
+  align-items: center;
   min-height: 100vh;
 
   .heading--primary{
@@ -19,12 +19,14 @@
     top: 7rem;
     color: $color--primary;
     cursor: pointer;
+    margin-bottom: 3rem;
   }
 
   .likeRecipes__container {
    display: flex;
     padding: 1rem;
     flex-wrap: wrap;
+    justify-content: center;
     @include respond(phone) {
       justify-content: center;
     }
@@ -38,8 +40,10 @@
         margin-right: 2rem;
         margin-bottom: 2rem;
       }
+      
+      
       &--image {
-        width: 100%;
+        width: 80%;
       }
       &--title {
         font-size: 2rem;
@@ -53,7 +57,7 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-70%, -70%);
       }
     }
   }

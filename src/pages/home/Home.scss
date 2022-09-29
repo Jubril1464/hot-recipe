@@ -36,6 +36,11 @@
         @include respond(phone){
           height: 10rem;
           width: 10rem;
+           &:hover {
+           outline: 5px solid $color--primary;
+          outline-offset: 5px 
+        }
+
         }
         .img{
           width: 100%;
@@ -68,6 +73,10 @@
         @include respond(phone){
           height: 10rem;
           width: 10rem;
+           &:hover {
+           outline: 5px solid $color--primary;
+          outline-offset: 5px 
+        }
         }
         .img{
           width: 100%;

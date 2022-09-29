@@ -15,19 +15,20 @@ const LikedRecipes = () => {
       <span className="arrow-left" onClick={() => navigate(-1)}>
         &larr;
       </span>
-     
-
-      
 
       {likedRecipes.length === 0 && <h1>You don't have any liked recipe</h1>}
       <div className="likeRecipes__container">
-        
-      
         {likedRecipes.map((recipe) => (
           <div className="like__recipe" key={recipe.id}>
-            <Link to={`/recipe/${recipe.id}`}>
-              <img src={recipe.image} alt="" className="like__recipe--image" />
-            </Link>
+            <div className="img__container">
+              <Link to={`/recipe/${recipe.id}`}>
+                <img
+                  src={recipe.image}
+                  alt=""
+                  className="like__recipe--image"
+                />
+              </Link>
+            </div>
             <h2 className="like__recipe--title">{recipe.title}</h2>
             <button
               className="remove--btn"

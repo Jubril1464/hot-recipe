@@ -1,66 +1,67 @@
 $color--primary: #6ee7b7;
 $color--secondary: #34d399;
-$color--white : #fff;
+$color--white: #fff;
 $color--bg: #ecfeff;
 .App {
-    background-color: $color--bg;
-    min-height: 100vh;
-    position: relative;
-  
- 
+  background-color: $color--bg;
+  min-height: 100vh;
+  position: relative;
 }
-*, *::after, *::before{
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-} 
-//// MEDIA QUERY MANANGER
+}
+//// MEDIA QUERY MANAGER
 /// 0 - 600px : phone
 /// 600px - 900px : Tablet portrait
 /// 900px - 1200px : Tablet Landscape
 /// [1200px - 1800] is where our normal styles apply
 /// 1800px + : Big desktop
-// $breakpoint argument choices 
+// $breakpoint argument choices
 //  -phone
 // -tab-port
 // - tab-land
 // - big desktop
 // 1em = 16px
 
-
-@mixin respond($breakpoint){
-    @if $breakpoint == phone {
-          @media(max-width: 37.5em){@content};  /// 600px
-
-    }
-    @if $breakpoint == tab-port {
-          @media(max-width: 56.25em){@content};  //900px
-
-    }
-    @if $breakpoint == tab-land {
-          @media(max-width: 75em){@content};  /// 1200px
-
-    }
-    @if $breakpoint == big-desktop  {
-          @media(min-width: 112.5em){@content};  /// 1800
-
-    }
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    } /// 600px
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    } /// 1200px
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    } /// 1800
+  }
 }
 
-html{
+html {
   font-size: 62.5%; /* 1rem = 10px, 10/16 = 62.5% */
   font-family: Cormorant Infant;
- 
-  
-  @include respond(tab-land){
+
+  @include respond(tab-land) {
     font-size: 58%;
   }
-  @include respond(tab-port){
+  @include respond(tab-port) {
     font-size: 55%;
-  } 
-   @include respond(phone){
+  }
+  @include respond(phone) {
     font-size: 43.7%;
   }
-  
 }
 
 body {
@@ -75,19 +76,15 @@ body {
 //     font-size:  55%;
 //   }
 // }
-// /* Media query for tab portait */
+// /* Media query for tab portrait */
 // @media (max-width : 900px){
 //   html {
 //     font-size: 50%;  /* 1rem = 8px, 8/16 = 50% */
 //   }
 // }
-/* Media query for phone */ 
+/* Media query for phone */
 // @media (max-width: 600px){
 //   html{
 //     font-size: 43.75%;    /* 1rem = 7px, 8/16 = 43.75% */
 //   }
 // }
-
-
-
-

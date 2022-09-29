@@ -4,10 +4,13 @@
   justify-content: space-around;
   font-size: 2rem;
   padding-top: 2rem;
-  position: fixed;
+  padding-bottom: 1rem;
+  // position: fixed;
   width: 100%;
   z-index: 2000;
-  background-color: $color--white;
+  // background-color: $color--white;
+  
+  
 
   .nav__icon {
     display: none;
@@ -186,3 +189,7 @@
 .respond__nav {
   left: 0 !important;
 }
+.sticky{
+    position: fixed;
+    background-color: $color--white;
+  }

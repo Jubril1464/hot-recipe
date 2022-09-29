@@ -12,6 +12,11 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   const location = useLocation()
+
+  
+
+  
+
   return (
     <div className="App">
       <Nav />

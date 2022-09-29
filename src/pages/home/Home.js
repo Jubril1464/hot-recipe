@@ -9,13 +9,15 @@ import Random from "../../components/Random/Random";
 
 
 const Home = () => {
+  
+ 
   return (
     <div className="home">
       <div className="home__heroSection">
         <div className="container1">
           <img src={img2} alt="" className="img" />
         </div>
-        <div className="container2" >
+        <div className="container2">
           <img src={img3} alt="" className="img" />
         </div>
         <div className="home__heroSection-textbox">
@@ -29,7 +31,7 @@ const Home = () => {
             No need to worry again!
           </p>
           <Link to="/recipes" className="home__heroSection-textbox--cta">
-           <span>Explore Recipes</span> 
+            <span>Explore Recipes</span>
           </Link>
         </div>
 
