@@ -29,6 +29,9 @@ For more on it : https://reactrouter.com
 If there is error 402 or 401, that means you have exceeded the maximum request given by the API owner
 so you can either pay for the API or create a new account at : https://spoonacular.com/food-api
 After that there is a file named APIKEY at the src folder, change the apikey to the new generated one
+Or you can wait for a day because the maximum request for a free plan is 100 request per day
+
+
 ### To install all dependencies run npm install or yarn in your CMD or Terminal 
 ### After installing dependencies, run npm start to start the react app
 ### `npm start`
