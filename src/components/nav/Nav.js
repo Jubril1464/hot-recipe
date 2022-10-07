@@ -41,6 +41,7 @@ const Nav = () => {
     
     if(!entry.isIntersecting) setSticky(true)
     else setSticky(false)
+   
 
   };
  let navObserver = new IntersectionObserver(stickyNav, {

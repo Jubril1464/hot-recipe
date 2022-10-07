@@ -1,44 +1,38 @@
 import { useState, useEffect } from "react";
-import './Recipes.scss'
+import "./Recipes.scss";
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import { addLike } from "../../redux/likeRecipes/likeRecipes.action";
 import { Link, useNavigate } from "react-router-dom";
 import { APIKEY } from "../../APIKEY";
 
-
 const Recipes = () => {
-  const navigate= useNavigate()
-  const selector = useSelector(state => state.likeRecipe)
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const selector = useSelector((state) => state.likeRecipe);
+  const dispatch = useDispatch();
   console.log(selector);
-    const [random, setRandom] = useState([]);
-  const [isLoading, setIsLoading] = useState(true)
-  const [likes, setLikes] = useState([])
-  
+  const [random, setRandom] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [likes, setLikes] = useState([]);
 
   const getRandomRecipes = async () => {
     const getData = localStorage.getItem("popular");
-    localStorage.clear('popular')
-    
-    
+    localStorage.clear("popular");
 
     if (getData) {
       setRandom(JSON.parse(getData));
-      setIsLoading(false)
+      setIsLoading(false);
     } else {
       const resp = await fetch(
         `https://api.spoonacular.com/recipes/random?apiKey=${APIKEY}&number=32`
       );
-        if (resp.ok) {
-            const data = await resp.json();
-            setIsLoading(false)
+      if (resp.ok) {
+        const data = await resp.json();
+        setIsLoading(false);
 
-             setRandom(data.recipes);
-             localStorage.setItem("popular", JSON.stringify(data.recipes));
-             console.log(data.recipes);
-            
-        }
-       
+        setRandom(data.recipes);
+        localStorage.setItem("popular", JSON.stringify(data.recipes));
+        console.log(data.recipes);
+      }
     }
   };
   useEffect(() => {
@@ -46,9 +40,7 @@ const Recipes = () => {
   }, []);
   const handleLike = (recipe) => {
     setLikes(likes.concat(recipe.id));
-    dispatch(addLike(recipe))
-    
-
+    dispatch(addLike(recipe));
   };
   return (
     <div className="recipes">

@@ -2,14 +2,14 @@
 .recipes {
   text-align: center;
   padding: 2rem;
-  padding-top: 5rem;
+  padding-top: 1rem;
   position: relative;
   min-height: 100vh;
   .arrow-left {
     font-size: 5rem;
     position: absolute;
     left: 0;
-    top: 7rem;
+    top: -2rem;
     color: $color--primary;
     cursor: pointer;
   }
